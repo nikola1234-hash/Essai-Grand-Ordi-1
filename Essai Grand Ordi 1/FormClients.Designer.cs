@@ -57,6 +57,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             pHONE_NUMBERLabel = new System.Windows.Forms.Label();
             fIRST_NAMELabel = new System.Windows.Forms.Label();
             lAST_NAMELabel = new System.Windows.Forms.Label();
@@ -205,7 +206,7 @@
             this.pHONE_NUMBERTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "PHONE_NUMBER", true));
             this.pHONE_NUMBERTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.pHONE_NUMBERTextBox.Location = new System.Drawing.Point(205, 35);
-            this.pHONE_NUMBERTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pHONE_NUMBERTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.pHONE_NUMBERTextBox.Name = "pHONE_NUMBERTextBox";
             this.pHONE_NUMBERTextBox.Size = new System.Drawing.Size(133, 16);
             this.pHONE_NUMBERTextBox.TabIndex = 1;
@@ -216,7 +217,7 @@
             this.fIRST_NAMETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "FIRST_NAME", true));
             this.fIRST_NAMETextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.fIRST_NAMETextBox.Location = new System.Drawing.Point(205, 67);
-            this.fIRST_NAMETextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fIRST_NAMETextBox.Margin = new System.Windows.Forms.Padding(4);
             this.fIRST_NAMETextBox.Name = "fIRST_NAMETextBox";
             this.fIRST_NAMETextBox.Size = new System.Drawing.Size(133, 16);
             this.fIRST_NAMETextBox.TabIndex = 3;
@@ -227,7 +228,7 @@
             this.lAST_NAMETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "LAST_NAME", true));
             this.lAST_NAMETextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.lAST_NAMETextBox.Location = new System.Drawing.Point(205, 99);
-            this.lAST_NAMETextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lAST_NAMETextBox.Margin = new System.Windows.Forms.Padding(4);
             this.lAST_NAMETextBox.Name = "lAST_NAMETextBox";
             this.lAST_NAMETextBox.Size = new System.Drawing.Size(133, 16);
             this.lAST_NAMETextBox.TabIndex = 5;
@@ -238,7 +239,7 @@
             this.sTREETTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "STREET", true));
             this.sTREETTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.sTREETTextBox.Location = new System.Drawing.Point(205, 131);
-            this.sTREETTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sTREETTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.sTREETTextBox.Name = "sTREETTextBox";
             this.sTREETTextBox.Size = new System.Drawing.Size(133, 16);
             this.sTREETTextBox.TabIndex = 7;
@@ -249,7 +250,7 @@
             this.aPARTMENT_NUMBERTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "APARTMENT_NUMBER", true));
             this.aPARTMENT_NUMBERTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.aPARTMENT_NUMBERTextBox.Location = new System.Drawing.Point(205, 163);
-            this.aPARTMENT_NUMBERTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aPARTMENT_NUMBERTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.aPARTMENT_NUMBERTextBox.Name = "aPARTMENT_NUMBERTextBox";
             this.aPARTMENT_NUMBERTextBox.Size = new System.Drawing.Size(133, 16);
             this.aPARTMENT_NUMBERTextBox.TabIndex = 9;
@@ -260,7 +261,7 @@
             this.fLOORTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "FLOOR", true));
             this.fLOORTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.fLOORTextBox.Location = new System.Drawing.Point(205, 195);
-            this.fLOORTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fLOORTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.fLOORTextBox.Name = "fLOORTextBox";
             this.fLOORTextBox.Size = new System.Drawing.Size(133, 16);
             this.fLOORTextBox.TabIndex = 11;
@@ -271,7 +272,7 @@
             this.hOME_NUMBERTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "HOME_NUMBER", true));
             this.hOME_NUMBERTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.hOME_NUMBERTextBox.Location = new System.Drawing.Point(205, 227);
-            this.hOME_NUMBERTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.hOME_NUMBERTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.hOME_NUMBERTextBox.Name = "hOME_NUMBERTextBox";
             this.hOME_NUMBERTextBox.Size = new System.Drawing.Size(133, 16);
             this.hOME_NUMBERTextBox.TabIndex = 13;
@@ -282,7 +283,7 @@
             this.cITYTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cLIENTSBindingSource, "CITY", true));
             this.cITYTextBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.cITYTextBox.Location = new System.Drawing.Point(205, 259);
-            this.cITYTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cITYTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.cITYTextBox.Name = "cITYTextBox";
             this.cITYTextBox.Size = new System.Drawing.Size(133, 16);
             this.cITYTextBox.TabIndex = 15;
@@ -291,7 +292,7 @@
             // 
             this.cLIENTSDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cLIENTSDataGridView.Location = new System.Drawing.Point(372, 35);
-            this.cLIENTSDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cLIENTSDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.cLIENTSDataGridView.Name = "cLIENTSDataGridView";
             this.cLIENTSDataGridView.Size = new System.Drawing.Size(1123, 286);
             this.cLIENTSDataGridView.TabIndex = 16;
@@ -336,11 +337,22 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(13, 328);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Select";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FormClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 416);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -362,7 +374,7 @@
             this.Controls.Add(cITYLabel);
             this.Controls.Add(this.cITYTextBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormClients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormClients";
@@ -398,5 +410,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

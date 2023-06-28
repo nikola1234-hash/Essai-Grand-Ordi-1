@@ -11,8 +11,8 @@ namespace Essai_Grand_Ordi_1.DataAccess.Entities
     public class Orders : BaseEntity
     {
         public int CLIENT_ID { get; set; }
-        public DateTime DATE_ORDERED { get; set; }
-        public DateTime ORDER_RECIEVED { get; set; }
+        public string DATE_ORDERED { get; set; }
+        public string ORDER_RECIEVED { get; set; }
         public string ORDER_TYPE { get; set; }
         public int ORDER_DETAILS_ID { get; set; }
     }

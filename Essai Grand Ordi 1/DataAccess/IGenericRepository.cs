@@ -8,7 +8,7 @@ namespace Essai_Grand_Ordi_1.DataAccess
         void Delete(T entity);
         IEnumerable<T> GetAll();
         T GetById(int id);
-        void Insert(T entity);
+        long Insert(T entity);
         void Update(T entity);
     }
 }

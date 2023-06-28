@@ -373,7 +373,8 @@ namespace Essai_Grand_Ordi_1.DataAccess.Extensions
             {
 
                 var cmd = $"insert into {name} ({sbColumnList.ToString()}) values ({sbParameterList.ToString()})";
-                returnVal = connection.Execute(cmd, entityToInsert, transaction, commandTimeout);
+                connection.Execute(cmd, entityToInsert, transaction, commandTimeout);
+                returnVal = connection.Query<int>($"SELECT TOP 1 ID FROM {name} ORDER BY ID DESC", transaction: transaction, commandTimeout: commandTimeout).Single();
             }
             else
             {

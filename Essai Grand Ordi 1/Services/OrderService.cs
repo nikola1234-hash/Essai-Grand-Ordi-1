@@ -1,4 +1,5 @@
 ﻿using Essai_Grand_Ordi_1.DataAccess;
+using Essai_Grand_Ordi_1.DataAccess.Entities;
 using Essai_Grand_Ordi_1.DTO;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,33 @@ namespace Essai_Grand_Ordi_1.Services
             return ordersList;
 
 
+
+
+        }
+        public void SaveOrder(List<MenuDTO> dto, int clientID)
+        {
+
+
+            foreach (var item in dto)
+            {
+                var orderDetails = new OrderDetails
+                {
+                    DISH_ID = item.ID,
+                    QUANTITY = item.Quantity
+                };
+                var id = _unit.OrderDetils.Insert(orderDetails);
+                Orders order = new Orders
+                {
+                    CLIENT_ID = clientID,
+                    DATE_ORDERED = DateTime.Now.ToString(),
+                    ORDER_RECIEVED = DateTime.Now.ToString(),
+                    ORDER_TYPE = "Delivery",
+                    ORDER_DETAILS_ID = (int)id
+                };
+
+
+                _unit.Orders.Insert(order);
+            }
 
 
         }

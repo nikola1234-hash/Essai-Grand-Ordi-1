@@ -37,7 +37,7 @@ namespace Essai_Grand_Ordi_1
 
         private void ordersDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormToOrder formtoOrder = new FormToOrder();
+            FormToOrder formtoOrder = new FormToOrder(_unit);
             formtoOrder.ShowDialog();
         }
 

@@ -121,6 +121,7 @@
     <Compile Include="DataAccess\IUnitOfWork.cs" />
     <Compile Include="DataAccess\UnitOfWork.cs" />
     <Compile Include="DTO\ClientDTO.cs" />
+    <Compile Include="DTO\MenuDTO.cs" />
     <Compile Include="DTO\OrderDTO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

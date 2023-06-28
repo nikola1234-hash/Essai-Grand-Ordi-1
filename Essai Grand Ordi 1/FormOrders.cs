@@ -39,9 +39,21 @@ namespace Essai_Grand_Ordi_1
             }
 
             var filteredOrders = orders.Where(o => o.FIRST_NAME.Contains(textBox1.Text) || o.LAST_NAME.Contains(textBox1.Text) || o.PHONE_NUMBER.Contains(textBox1.Text)).ToList();
+
+            if (filteredOrders.Count == 0)
+            {
+                MessageBox.Show("No results found");
+                return;
+            }
+
             dataGridView1.DataSource = filteredOrders;
             dataGridView1.Refresh();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

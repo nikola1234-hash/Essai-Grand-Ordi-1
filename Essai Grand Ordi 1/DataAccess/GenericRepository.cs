@@ -34,12 +34,12 @@ namespace Essai_Grand_Ordi_1.DataAccess
             }
         }
 
-        public void Insert(T entity)
+        public long Insert(T entity)
         {
             using (IDbConnection connection = new OleDbConnection(connectionString))
             {
                 connection.Open();
-                SqlExtension.Insert(connection, entity);
+                return SqlExtension.Insert(connection, entity);
                 //connection.Insert(entity);
             }
         }

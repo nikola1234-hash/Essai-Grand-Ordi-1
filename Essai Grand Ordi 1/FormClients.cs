@@ -10,17 +10,26 @@ namespace Essai_Grand_Ordi_1
     {
         private IUnitOfWork _unit;
         private int clientId = default;
-        public FormClients(IUnitOfWork unit)
+        private bool isOrder = false;
+        public event EventHandler<int> ClientSelected;
+        public FormClients(IUnitOfWork unit, bool isOrder = false)
         {
             InitializeComponent();
             _unit = unit;
             InitializeDataGrid();
+            this.isOrder = isOrder;
+            this.button4.Enabled = isOrder;
+            this.button4.Visible = isOrder;
         }
 
         private void cLIENTSBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
 
 
+        }
+        private void OnClientSelected(int clientId)
+        {
+            ClientSelected?.Invoke(this, clientId);
         }
         private void InitializeDataGrid()
         {
@@ -114,6 +123,20 @@ namespace Essai_Grand_Ordi_1
             var client = _unit.Client.GetById(clientId);
             FormClientDetails details = new FormClientDetails(_unit, client);
             details.ShowDialog();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (clientId == 0)
+            {
+                MessageBox.Show("Please select a client to order");
+            }
+            else
+            {
+                OnClientSelected(clientId);
+                this.Close();
+            }
 
         }
     }
