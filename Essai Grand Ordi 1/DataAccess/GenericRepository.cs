@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Dapper.Contrib.Extensions;
 using System.Configuration;
 using Essai_Grand_Ordi_1.DataAccess.Entities;
 using System.Data.OleDb;

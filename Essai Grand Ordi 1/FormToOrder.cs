@@ -3,12 +3,7 @@ using Essai_Grand_Ordi_1.DTO;
 using Essai_Grand_Ordi_1.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -136,8 +131,17 @@ namespace Essai_Grand_Ordi_1
             {
                 if (isPhase2)
                 {
-                    os.SaveOrder(cart, clientId);
-                    MessageBox.Show("Order saved");
+                    try
+                    {
+                        os.SaveOrder(cart, clientId);
+                        MessageBox.Show("Order saved");
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
                 }
                 else
                 {

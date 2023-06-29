@@ -1,11 +1,17 @@
-﻿using Essai_Grand_Ordi_1.DataAccess;
+﻿using Dapper;
+using Essai_Grand_Ordi_1.DataAccess;
 using Essai_Grand_Ordi_1.DataAccess.Entities;
+using Essai_Grand_Ordi_1.DataAccess.Extensions;
 using Essai_Grand_Ordi_1.DTO;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 
 namespace Essai_Grand_Ordi_1.Services
@@ -13,6 +19,8 @@ namespace Essai_Grand_Ordi_1.Services
     public class OrderService
     {
         private IUnitOfWork _unit;
+        private string connectionStirng = ConfigurationManager.ConnectionStrings["Bakery"].ToString();
+
         public OrderService()
         {
             _unit = new UnitOfWork();
@@ -59,26 +67,56 @@ namespace Essai_Grand_Ordi_1.Services
         public void SaveOrder(List<MenuDTO> dto, int clientID)
         {
 
-
-            foreach (var item in dto)
+            using (IDbConnection conn = new OleDbConnection(connectionStirng))
             {
-                var orderDetails = new OrderDetails
+                conn.Open();
+                using (IDbTransaction transaction = conn.BeginTransaction())
                 {
-                    DISH_ID = item.ID,
-                    QUANTITY = item.Quantity
-                };
-                var id = _unit.OrderDetils.Insert(orderDetails);
-                Orders order = new Orders
-                {
-                    CLIENT_ID = clientID,
-                    DATE_ORDERED = DateTime.Now.ToString(),
-                    ORDER_RECIEVED = DateTime.Now.ToString(),
-                    ORDER_TYPE = "Delivery",
-                    ORDER_DETAILS_ID = (int)id
-                };
+                    try
+                    {
 
+                        foreach (var item in dto)
+                        {
+                            var orderDetails = new OrderDetails
+                            {
+                                DISH_ID = item.ID,
+                                QUANTITY = item.Quantity
+                            };
 
-                _unit.Orders.Insert(order);
+                            conn.Execute("INSERT INTO ORDER_DETAILS (DISH_ID, QUANTITY) VALUES (@DISH_ID, @QUANTITY)", orderDetails, transaction);
+                            var id = conn.Query<int>("SELECT @@IDENTITY", param: null, transaction).FirstOrDefault();
+                            Orders order = new Orders
+                            {
+                                CLIENT_ID = clientID,
+                                DATE_ORDERED = DateTime.Now.ToString(),
+                                ORDER_RECIEVED = DateTime.Now.ToString(),
+                                ORDER_TYPE = "Delivery",
+                                ORDER_DETAILS_ID = Convert.ToInt32(id)
+                            };
+                            var param = new Dictionary<string, object>()
+                            {
+                                ["CLIENT_ID"] = clientID,
+                                ["DATE_ORDERED"] = DateTime.Now.ToString(),
+                                ["ORDER_RECIEVED"] = DateTime.Now.ToString(),
+                                ["ORDER_TYPE"] = "Delivery",
+                                ["ORDER_DETAILS_ID"] = Convert.ToInt32(id)
+                            };
+                            var dynamicParam = new DynamicParameters(param);
+                            conn.Execute("INSERT INTO ORDERS (CLIENT_ID, DATE_ORDERED, ORDER_RECIEVED, ORDER_TYPE, ORDER_DETAILS_ID) VALUES (@CLIENT_ID, @DATE_ORDERED, @ORDER_RECIEVED, @ORDER_TYPE, @ORDER_DETAILS_ID)", dynamicParam, transaction);
+                        }
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw ex;
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+
             }
 
 

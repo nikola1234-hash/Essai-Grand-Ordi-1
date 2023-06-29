@@ -22,6 +22,7 @@ namespace Essai_Grand_Ordi_1.DTO
             NAME = nAME;
             PRICE = pRICE;
             ID = itemID;
+            Quantity = 1;
         }
     }
 }

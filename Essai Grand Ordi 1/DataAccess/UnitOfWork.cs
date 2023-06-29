@@ -1,6 +1,7 @@
 ﻿using Essai_Grand_Ordi_1.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,15 @@ namespace Essai_Grand_Ordi_1.DataAccess
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IGenericRepository<City> City { get; set; }
-        public IGenericRepository<Client> Client { get; set; }
+
+
+        public IGenericRepository<City> City { get; }
+        public IGenericRepository<Client> Client { get; }
         public IGenericRepository<Menu> Menu { get; set; }
-        public IGenericRepository<OrderDetails> OrderDetils { get; set; }
-        public IGenericRepository<OrderMethod> OrderMethod { get; set; }
+        public IGenericRepository<OrderDetails> OrderDetils { get; }
+        public IGenericRepository<OrderMethod> OrderMethod { get; }
         public IGenericRepository<Orders> Orders { get; set; }
-        public IGenericRepository<Payments> Payments { get; set; }
+        public IGenericRepository<Payments> Payments { get; }
 
 
         public UnitOfWork()
